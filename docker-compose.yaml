@@ -1,5 +1,5 @@
 version: '2'
-name: restaurant
+name: weather-stream
 services:
   kafka:
     image: 'bitnami/kafka:latest'
@@ -19,7 +19,7 @@ services:
       - KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER #used by Kraft not to be included in the advertised listeners
       - BITNAMI_DEBUG=true
   kafka-ui:
-    container_name: kafka-ui
+
     image: provectuslabs/kafka-ui:latest
     ports:
       - "8090:8080" # http://localhost:8090 to reach the Kafka gui
@@ -29,16 +29,17 @@ services:
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
     depends_on:
       - kafka
-  postgres:
-    image: postgres:latest
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: restaurant-user
-      POSTGRES_PASSWORD: restaurant-password
-      POSTGRES_DB: restaurant
-    volumes:
-      - /c/temp/postgres-restaurant-vol:/var/lib/postgresql/data
+#  postgres:
+#    image: postgres:latest
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      POSTGRES_USER: restaurant-user
+#      POSTGRES_PASSWORD: restaurant-password
+#      POSTGRES_DB: restaurant
+#    volumes:
+#      - /c/temp/postgres-restaurant-vol:/var/lib/postgresql/data
+
 #volumes:
 # this volume should be created externally in Docker
 # docker volume create my-vol
