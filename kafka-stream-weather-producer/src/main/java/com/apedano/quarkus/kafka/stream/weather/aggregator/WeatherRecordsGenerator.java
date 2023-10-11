@@ -1,4 +1,4 @@
-package com.apedano.quarkus.kafka.stream.weather;
+package com.apedano.quarkus.kafka.stream.weather.aggregator;
 
 
 import io.smallrye.mutiny.Multi;
