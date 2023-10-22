@@ -75,14 +75,8 @@ Kafka makes sure that each partition is consumed by exactly one consumer in the 
 **Parallelism is given by the number of partition**: if a groups has more consumers than the number of partitions in the topic, the consumers will be idle until 
 one of the assigned consumers is no longer available (**failover**).
 
-
-
-
 https://medium.com/event-driven-utopia/understanding-kafka-topic-partitions-ae40f80552e8
 
 
-
-
-### Event producers determine event partitioning
 
 
