@@ -2,7 +2,8 @@
 
 ## Storing vs Processing
 
-![storing_processing.png](img%2Fstoring_processing.png)
+<img src="img%2Fstoring_processing.png" width="400">
+
 
 ### Storing layer
 The storing layer of Kafka regards how data is persisted in **topics** and **partitions**: 
@@ -137,7 +138,8 @@ as well as for worker nodes in a Kafka Connect cluster.
 
 ## Group processing - The [Kafka's consumer group protocol](https://kafka.apache.org/protocol)
 
-![img.png](img/group_processing_01.png)
+<img src="img/group_processing_01.png" width="400">
+
 
 For example, we could write a distributed, multi-instance fraud detection application with Kafka Streams to process the events in a high-volume payments topic in parallel, 
 and its app instances would all be members of the same group `fraud-detection-app` that represents the logical application. 
@@ -161,7 +163,7 @@ If you want to learn about rebalancing in more detail, I recommend the article [
 
 ### Stream tasks
 
-![img.png](img/stream_tasks_01.png)
+<img src="img/stream_tasks_01.png" width="400">
 
 The actual **unit of parallelism**, is not the application instance but the **stream task**  (which processes both streams and tables, despite its name). 
 An application instance can be running zero, one, or multiple such tasks during its lifecycle. 
@@ -208,7 +210,8 @@ If a table has 10 partitions, then its state store will have 10 partitions, too.
 During the actual processing, **each state store partition will be maintained by one and only one stream task, 
 which has exclusive access to the data**. We can thus say that such tasks are _stateful stream tasks_.
 
-![img.png](img/table_partitions_01.png)
+<img src="img/table_partitions_01.png" width="400">
+
 
 This _distributed, shared-nothing design based on partitions_ for **stateful processing (tables)** as well as for **stateless processing (streams)** is a major reason why **Kafka’s processing layer scalability**.
 
@@ -217,7 +220,7 @@ This _distributed, shared-nothing design based on partitions_ for **stateful pro
 Consider one example where a topic contains 12 Gb of data for all its 4 partitions P1-P4: depending on the topic's _partitioning function_ these 12 Gb of data will be destributed over the partitions.
 The image below is one example
 
-![img.png](img/table_partitions_02.png)
+<img src="img/table_partitions_02.png" width="400">
 
 ## Global tables
 
@@ -225,13 +228,13 @@ The global table fulfills the requirement of the table to aggregate events from 
 Global tables are not partitioned, meaning that all events from the topics are propagated to all stream tasks
 (based on the previous examples, each state store will contain 12 Gb of data).
 
-![table_partitions_03.png](img%2Ftable_partitions_03.png)
+<img src="img%2Ftable_partitions_03.png" width="400">
 
 Global tables are very useful for, say, broadcasting information to all tasks or when you want to do joins without having to first re-partition your input data.
 
 ## Comparing streams, tables, and topics
 
-![stream_table_topic_comparison.png](img%2Fstream_table_topic_comparison.png)
+<img src="img%2Fstream_table_topic_comparison.png" width="400">
 
 
 

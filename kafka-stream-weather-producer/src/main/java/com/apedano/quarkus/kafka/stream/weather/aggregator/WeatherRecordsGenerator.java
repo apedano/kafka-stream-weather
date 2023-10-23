@@ -67,7 +67,6 @@ public class WeatherRecordsGenerator {
     }
 
     private static class WeatherStation {
-
         int id;
         String name;
         int averageTemperature;

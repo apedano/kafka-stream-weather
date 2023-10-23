@@ -40,10 +40,10 @@ Compared to an event stream, a **table** _represents the state of the world at a
 An example table is total sales or the current state of the board in a chess match. **A table is a view of an event stream**, **and this view is continuously being updated whenever a new event is captured**.
 
 
-![kafka-streams-and-tables](img%2Fkafka-streams-and-tables.gif)
+<img src="img%2Fkafka-streams-and-tables.gif" width="400">
 
-|               Streams               |         Tables                      |
-|:-----------------------------------:|:-----------------------------------:|
+|               Streams               |               Tables                |
+| :---------------------------------: | :---------------------------------: |
 |      _Immutable keyed events_       |           _Mutable data_            |
 |            Only inserts             |    Inserts, updates and deletes     |
 | Persistent, durable, fault tolerant | Persistent, durable, fault tolerant |
@@ -51,8 +51,8 @@ An example table is total sales or the current state of the board in a chess mat
 
 
 |                                           | Stream | Table     |
-|-------------------------------------------|--------|-----------|
-| First event with key bob arrives	         | Insert | Insert    | 
+| ----------------------------------------- | ------ | --------- |
+| First event with key bob arrives          | Insert | Insert    |
 | Another event with key bob arrives        | Insert | Insert    |
 | Event with key bob and value null arrives | Insert | Delete    |
 | Event with key null arrives               | Insert | <ignored> |
@@ -91,10 +91,9 @@ KTable<String, Long> locationsPerUser
 
 Here is how the stream, the table and the changelog are linked together
 
-![changelog.gif](img%2Fchangelog.gif)
+<img src="img%2Fchangelog.gif" width="400">
 
 ### Table to Stream - **CDC**
 Change data capture, by capturing all changes to the table we can create a _change stream_ or a _chengelog_. The example is the _binary log_ of an RDBMS (all CUD queries to the database).
 
-![stram_table_duality.png](img%2Fstram_table_duality.png)
-
+<img src="img%2Fstram_table_duality.png" width="400">
